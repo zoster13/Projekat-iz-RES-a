@@ -1,0 +1,27 @@
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\LoggerTest.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\LoggerTest.pdb
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\Logger.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\nunit.framework.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\Logger.pdb
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\bin\Debug\nunit.framework.xml
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\obj\Debug\LoggerTest.csprojResolveAssemblyReference.cache
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\obj\Debug\LoggerTest.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\LoggerTest\obj\Debug\LoggerTest.pdb
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\LoggerTest.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\LoggerTest.pdb
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\nunit.framework.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\bin\Debug\nunit.framework.xml
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\obj\Debug\LoggerTest.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\obj\Debug\LoggerTest.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\LoggerTest\obj\Debug\LoggerTest.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\LoggerTest.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\LoggerTest.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\nunit.framework.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\bin\Debug\nunit.framework.xml
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\obj\Debug\LoggerTest.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\obj\Debug\LoggerTest.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\LoggerTest\obj\Debug\LoggerTest.pdb

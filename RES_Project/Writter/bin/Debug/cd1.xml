@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ArrayOfHistoricalProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HistoricalProperty>
+    <Code>CODE_DIGITAL</Code>
+    <HistoricalValue>7.84</HistoricalValue>
+    <Time>2016-06-11T16:37:16.2926201+02:00</Time>
+  </HistoricalProperty>
+  <HistoricalProperty>
+    <Code>CODE_ANALOG</Code>
+    <HistoricalValue>6.22</HistoricalValue>
+    <Time>2016-06-11T16:37:16.2936204+02:00</Time>
+  </HistoricalProperty>
+</ArrayOfHistoricalProperty>

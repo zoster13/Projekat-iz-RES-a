@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBufferTest\bin\Debug\DumpingBufferTest.dll" total="26" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-06-11" time="13:46:23">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8689" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="DESKTOP-TCE58NR" user="ACA" user-domain="DESKTOP-TCE58NR" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBufferTest\bin\Debug\DumpingBufferTest.dll" executed="True" result="Success" success="True" time="0.480" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="DumpingBufferTest" executed="True" result="Success" success="True" time="0.466" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="DumpingBufferTest" executed="True" result="Success" success="True" time="0.464" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="CheckDataset_Dobar" executed="True" result="Success" success="True" time="0.320" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Dobar(2)" executed="True" result="Success" success="True" time="0.294" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Dobar(5)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Dobar(1)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Dobar(3)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Dobar(7)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="CheckDataset_Los" executed="True" result="Success" success="True" time="0.023" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Los(8)" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Los(-5)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Los(11)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Los(13)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckDataset_Los(-1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="CheckUpdate_Dobar" executed="True" result="Success" success="True" time="0.021" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Dobar(3)" executed="True" result="Success" success="True" time="0.007" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Dobar(2)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Dobar(1)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Dobar(4)" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="CheckUpdate_Los" executed="True" result="Success" success="True" time="0.018" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Los(7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Los(-1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Los(5)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.CheckUpdate_Los(0)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="WriteToDumpingBuffer_DobarTest" executed="True" result="Success" success="True" time="0.025" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_DobarTest(2,5.21f)" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_DobarTest(5,2.23f)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_DobarTest(3,7.8f)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_DobarTest(7,1.12f)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="WriteToDumpingBuffer_LosTest" executed="True" result="Success" success="True" time="0.019" asserts="0">
+                <results>
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_LosTest(11,15.2f)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_LosTest(9,-3.0f)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_LosTest(-1,10.2f)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="DumpingBufferTest.DumpingBufferTest.WriteToDumpingBuffer_LosTest(8,-0.2f)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

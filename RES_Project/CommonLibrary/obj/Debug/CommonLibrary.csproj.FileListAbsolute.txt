@@ -1,0 +1,7 @@
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\bin\Debug\CommonLibrary.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\bin\Debug\CommonLibrary.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\bin\Debug\MyGlobals.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\bin\Debug\MyGlobals.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\obj\Debug\CommonLibrary.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\obj\Debug\CommonLibrary.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\CommonLibrary\obj\Debug\CommonLibrary.pdb

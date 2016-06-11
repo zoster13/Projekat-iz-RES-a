@@ -1,0 +1,23 @@
+C:\Users\e327-2013\Desktop\REESw\Projekat\1AAAAA\RES\Writter\Logger\bin\Debug\Logger.dll
+C:\Users\e327-2013\Desktop\REESw\Projekat\1AAAAA\RES\Writter\Logger\bin\Debug\Logger.pdb
+C:\Users\e327-2013\Desktop\REESw\Projekat\1AAAAA\RES\Writter\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\e327-2013\Desktop\REESw\Projekat\1AAAAA\RES\Writter\Logger\obj\Debug\Logger.dll
+C:\Users\e327-2013\Desktop\REESw\Projekat\1AAAAA\RES\Writter\Logger\obj\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\kodovi\RES_Project\Logger\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\kodovi\RES_Project\Logger\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\kodovi\RES_Project\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\kodovi\RES_Project\Logger\obj\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\kodovi\RES_Project\Logger\obj\Debug\Logger.pdb
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\Logger\bin\Debug\Logger.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\Logger\bin\Debug\Logger.pdb
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\Logger\obj\Debug\Logger.dll
+C:\Users\e327-2013\Desktop\RES Project\RES_Project\Logger\obj\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\Logger\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\Logger\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\Logger\obj\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\RES_Project_NOVI\RES_Project\Logger\obj\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Logger\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Logger\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Logger\obj\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Logger\obj\Debug\Logger.pdb

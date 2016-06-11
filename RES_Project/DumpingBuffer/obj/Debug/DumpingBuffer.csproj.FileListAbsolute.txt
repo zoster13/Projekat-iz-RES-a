@@ -1,0 +1,11 @@
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\DumpingBuffer.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\DumpingBuffer.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\CommonLibrary.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\Historical.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\MyGlobals.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\CommonLibrary.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\Historical.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\bin\Debug\MyGlobals.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\obj\Debug\DumpingBuffer.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\obj\Debug\DumpingBuffer.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\DumpingBuffer\obj\Debug\DumpingBuffer.pdb

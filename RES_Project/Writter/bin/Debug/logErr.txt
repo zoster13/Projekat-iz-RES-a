@@ -1,0 +1,22 @@
+
+Log Error : 4:38:12 PM Monday, May 30, 2016
+Class  :
+Function  :SendToDumpingBuffer
+Tried to write message  :Sending to Dumping Buffer
+Exception message  :Exception of type 'System.Exception' was thrown.
+-------------------------------
+
+Log Error : 4:39:59 PM Monday, May 30, 2016
+Class  :
+Function  :SendToDumpingBuffer
+Tried to write message  :Sending to Dumping Buffer
+Exception message  :Parameter is missing or it is null
+-------------------------------
+
+Log Error : 4:46:13 PM Monday, May 30, 2016
+Class  :Program
+Function  :
+Tried to write message  :Sending to Dumping Buffer
+Exception message  :Parameter is missing or it is null
+Error at  :   at RES.Logger.Log(String Class, String method, String logMessage, TextWriter w) in C:\Users\ACA\Desktop\RES\Writter\Logger\Logger.cs:line 18
+-------------------------------

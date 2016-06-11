@@ -1,0 +1,11 @@
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\Historical.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\Historical.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\CommonLibrary.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\Logger.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\MyGlobals.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\CommonLibrary.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\Logger.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\bin\Debug\MyGlobals.pdb
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\obj\Debug\Historical.csprojResolveAssemblyReference.cache
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\obj\Debug\Historical.dll
+C:\Users\ACA\Desktop\RES\workspace\ProjekatRES\RES_Project\Historical\obj\Debug\Historical.pdb
