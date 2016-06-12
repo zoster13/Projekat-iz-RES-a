@@ -61,10 +61,11 @@ namespace RES
         {
             foreach(HistoricalProperty hp in properties)
             {
-                Console.WriteLine("Code: {0}", hp.Code);
-                Console.WriteLine("HistoricalValue: {0}", hp.HistoricalValue);
-                Console.WriteLine("Time: {0}", hp.Time);
-                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine("\n-----------------------------------------------");
+                Console.WriteLine("\tCode: {0}", hp.Code);
+                Console.WriteLine("\tHistoricalValue: {0}", hp.HistoricalValue);
+                Console.WriteLine("\tTime: {0}", hp.Time);
+                Console.WriteLine("-----------------------------------------------\n");
             }
         }
 

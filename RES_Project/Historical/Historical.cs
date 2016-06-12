@@ -253,7 +253,7 @@ namespace Historical_NS
 
                 case Codes.CODE_CUSTOM:
                 case Codes.CODE_LIMITSET:
-                    return GetChangesForCodeConsumerOrLimitset(code);
+                    return GetChangesForCodeCustomOrLimitset(code);
 
                 case Codes.CODE_SINGLENODE:
                 case Codes.CODE_MULTIPLENODE:
@@ -274,11 +274,16 @@ namespace Historical_NS
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
 
-            foreach (HistoricalDescription hd in LD1.ListHistoricalDesc)
+            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
+            TextReader reader = new StreamReader(@"..\..\..\LD1.xml");
+            ListDescription LD1  = (ListDescription)deserializer.Deserialize(reader);
+            reader.Close();
+
+            foreach(HistoricalDescription hd in LD1.ListHistoricalDesc)
             {
-                foreach (HistoricalProperty hp in hd.HistoricalProperties)
+                foreach(HistoricalProperty hp in hd.HistoricalProperties)
                 {
-                    if (hp.Code == code)
+                    if(hp.Code == code)
                     {
                         returnList.Add(hp);
                     }
@@ -288,9 +293,14 @@ namespace Historical_NS
             return returnList;
         }
 
-        private List<HistoricalProperty> GetChangesForCodeConsumerOrLimitset(Codes code)
+        private List<HistoricalProperty> GetChangesForCodeCustomOrLimitset(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
+            TextReader reader = new StreamReader(@"..\..\..\LD2.xml");
+            ListDescription LD2 = (ListDescription)deserializer.Deserialize(reader);
+            reader.Close();
 
             foreach (HistoricalDescription hd in LD2.ListHistoricalDesc)
             {
@@ -310,6 +320,11 @@ namespace Historical_NS
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
 
+            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
+            TextReader reader = new StreamReader(@"..\..\..\LD3.xml");
+            ListDescription LD3 = (ListDescription)deserializer.Deserialize(reader);
+            reader.Close();
+
             foreach (HistoricalDescription hd in LD3.ListHistoricalDesc)
             {
                 foreach (HistoricalProperty hp in hd.HistoricalProperties)
@@ -327,6 +342,11 @@ namespace Historical_NS
         private List<HistoricalProperty> GetChangesForCodeConsumerOrSource(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
+            TextReader reader = new StreamReader(@"..\..\..\LD4.xml");
+            ListDescription LD4 = (ListDescription)deserializer.Deserialize(reader);
+            reader.Close();
 
             foreach (HistoricalDescription hd in LD4.ListHistoricalDesc)
             {
