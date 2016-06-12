@@ -9,5 +9,7 @@ namespace CommonLibrary
         void WriteToHistory(CollectionDescription CD);
 
         List<HistoricalProperty> GetChangesForInterval(Codes code);
+
+        void ManualWriteToHistory(Codes code, float value);
     }
 }

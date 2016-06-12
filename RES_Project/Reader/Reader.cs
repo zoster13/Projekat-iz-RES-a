@@ -11,8 +11,7 @@ namespace RES
 {
     public  class Reader
     {
-        private Historical historical = Historical.Instance();      //Singleton pattern
-
+        private Historical historical = Historical.Instance();      
         private Codes code;
 
         public Codes Code
@@ -28,6 +27,9 @@ namespace RES
             }
         }
 
+        /// <summary>
+        /// Konstruktor bez parametara.
+        /// </summary>
         public Reader()
         {
             Code = Codes.CODE_DIGITAL;
@@ -42,21 +44,28 @@ namespace RES
             this.Code = code;
         }
 
+        /// <summary>
+        /// Pomocna funkcija
+        /// </summary>
+        /// <returns></returns>
         public bool SendToHistorical()
         {
-            Code = (Codes)Meni();
+            Code = (Codes)Meni();       //izbor Code koji zelimo da citamo
             if((int)Code == 8)
             {
                 return false;
             }
-            Console.WriteLine("Poslato : {0}", Code);
+            Console.WriteLine("Zahtjev za: {0}", Code);
             List<HistoricalProperty> properties =  historical.GetChangesForInterval(code);
 
             ShowAllProperties(properties);
             return true;
-            
         }
 
+        /// <summary>
+        /// Prikaz svih HistoricalProperty-a, koji imaju prosledjeni Code.
+        /// </summary>
+        /// <param name="properties"></param>
         private void ShowAllProperties(List<HistoricalProperty> properties)
         {
             switch(code)
@@ -110,6 +119,10 @@ namespace RES
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Izbor Code-a
+        /// </summary>
+        /// <returns></returns>
         public int Meni()
         {
             int menuchoice = 0;
@@ -170,8 +183,5 @@ namespace RES
             }
             return -1;
         }
-
     }
-
-    
 }

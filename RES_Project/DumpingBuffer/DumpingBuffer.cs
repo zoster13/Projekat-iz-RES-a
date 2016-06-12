@@ -7,21 +7,49 @@ namespace DumpingBuffer_NS
 {
     public class DumpingBuffer : IDumpingBuffer
     {
-        private CollectionDescription CD1 = new CollectionDescription();
-        private CollectionDescription CD2 = new CollectionDescription();
-        private CollectionDescription CD3 = new CollectionDescription();
-        private CollectionDescription CD4 = new CollectionDescription();
+        private static DumpingBuffer instance;
 
-        private DumpingProperty dumpingProperty = new DumpingProperty();
+        private static CollectionDescription CD1;
+        private static CollectionDescription CD2;
+        private static CollectionDescription CD3;
+        private static CollectionDescription CD4;
+        private static DumpingProperty dumpingProperty;
+
+        private Historical historical = Historical.Instance();     //Singleton pattern
+
         private int dataset = 0;
         private bool updated = false;
            
-        private Historical historical = Historical.Instance();     //Singleton pattern
-
+        /// <summary>
+        /// Konstruktor bez parametara
+        /// </summary>
         public DumpingBuffer()
         {
+            CD1 = new CollectionDescription();
+            CD2 = new CollectionDescription();
+            CD3 = new CollectionDescription();
+            CD4 = new CollectionDescription();
         }
 
+        /// <summary>
+        /// Singleton pattern, postoji samo 1 instanca DumpingBuffer-a
+        /// </summary>
+        /// <returns></returns>
+        public static DumpingBuffer Instance()
+        {
+            if(instance == null)
+            {
+                instance = new DumpingBuffer();
+            }
+
+            return instance;
+        }
+
+        /// <summary>
+        /// Pomocna funkcija 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="value"></param>
         public void WriteToDumpingBuffer(Codes code, float value)
         {
             int tempCode = (int)code;
@@ -49,10 +77,11 @@ namespace DumpingBuffer_NS
             dumpingProperty = new DumpingProperty(code, value);
 
             dataset = CheckDataset(code);            
-            CheckUpdate(dataset);       
+            CheckUpdate(dataset);
+
             if (!updated)      
             {
-                //Unique ID & DumpingProperty
+                //Unique ID, Dataset & DumpingProperty
                 switch (dataset)                //na osnovu dataset-a odredjujemo u koji cemo CD da stavimo
                 {
                     case 1:
@@ -86,8 +115,6 @@ namespace DumpingBuffer_NS
             }
         }
 
-
-
         /// <summary>
         /// Funkcija provjerava da li u DumpingPropertyCollection postoje 2 DumpingProperty-a, odnosno da li postoje 2 razlicita koda
         /// Ukoliko posotoje, vrsi se slanje Historical komponenti.
@@ -102,7 +129,6 @@ namespace DumpingBuffer_NS
                     {
                         return true;
                     }
-
                     return false;
 
                 case 2:
@@ -110,7 +136,6 @@ namespace DumpingBuffer_NS
                     {
                         return true;
                     }
-
                     return false;
 
                 case 3:
@@ -118,7 +143,6 @@ namespace DumpingBuffer_NS
                     {
                         return true;
                     }
-
                     return false;
 
                 case 4:
@@ -126,8 +150,8 @@ namespace DumpingBuffer_NS
                     {
                         return true;
                     }
-
                     return false;
+
                 default:
                     return false;
             }

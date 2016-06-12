@@ -59,6 +59,10 @@
       <Project>{88aad55d-713f-4c9b-a105-58737575d5e7}</Project>
       <Name>DumpingBuffer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Historical\Historical.csproj">
+      <Project>{40dc5177-6d08-41b2-9a66-6b1995c023b5}</Project>
+      <Name>Historical</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{83227f90-7733-4738-a5b8-8cfe64ab6b9f}</Project>
       <Name>Logger</Name>

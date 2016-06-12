@@ -19,10 +19,10 @@ namespace Historical_NS
         private List<HistoricalProperty> historicalProperties;
         private HistoricalDescription historicalDesc;
 
-        private ListDescription LD1 = new ListDescription();
-        private ListDescription LD2 = new ListDescription();
-        private ListDescription LD3 = new ListDescription();
-        private ListDescription LD4 = new ListDescription();
+        private static ListDescription LD1;
+        private static ListDescription LD2;
+        private static ListDescription LD3;
+        private static ListDescription LD4;
 
         private int dataset = 0;
 
@@ -30,24 +30,39 @@ namespace Historical_NS
         private bool write = false;
 
         /// <summary>
-        /// Singleton pattern
+        /// Konstruktor bez parametara
+        /// </summary>
+        public Historical()
+        {
+        }
+
+        /// <summary>
+        /// Singleton pattern, omogucuje da uvijek imamo samo jednu instancu Historical-a
         /// </summary>
         /// <returns></returns>
         public static Historical Instance()
         {
             if (instance == null)
+            {
                 instance = new Historical();
 
+                LD1 = new ListDescription();
+                LD2 = new ListDescription();
+                LD3 = new ListDescription();
+                LD4 = new ListDescription();
+            }
             return instance;
         }
 
+        /// <summary>
+        /// Pomocna funkcija
+        /// </summary>
+        /// <param name="CD"></param>
         public void WriteToHistory(CollectionDescription CD)
         {
             historicalDesc = new HistoricalDescription();
             historicalProperties = new List<HistoricalProperty>();
-            ///historicalDesc.HistoricalProperties.Clear();        //resetuj pomocnu lokalnu prom
-            //historicalProperties.Clear();   //reset
-
+            
             //Prepakivanje u LD strukturu
             historicalDesc.ID = CD.ID;
             historicalDesc.Dataset = CD.Dataset;
@@ -69,7 +84,6 @@ namespace Historical_NS
             }
             historicalDesc.HistoricalProperties = historicalProperties;
 
-            
             //Dodaj u LD strukturu.
             if (historicalDesc.HistoricalProperties.Count == 2)     //bice 2 samo ako su oba prosla CheckDataset().
             {
@@ -112,17 +126,19 @@ namespace Historical_NS
                 //Izlazi iz Deadband-a, snimi u XML.
                 SaveToXML();
             }
-
         }
 
+        /// <summary>
+        /// Funkcija za snimanje LD struktura u XML fajl.
+        /// </summary>
         private void SaveToXML()
         {
-            switch (historicalDesc.Dataset)
+            switch (dataset)
             {
                 case 1:
                     {
                         var serializer1 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream1 = File.OpenWrite(@"..\..\..\LD1.xml"))
+                        using (var stream1 = File.Create(@"..\..\..\LD1.xml"))
                         {
                             serializer1.Serialize(stream1, LD1);
                         }
@@ -132,7 +148,7 @@ namespace Historical_NS
                 case 2:
                     {
                         var serializer2 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream2 = File.OpenWrite(@"..\..\..\LD2.xml"))
+                        using (var stream2 = File.Create(@"..\..\..\LD2.xml"))
                         {
                             serializer2.Serialize(stream2, LD2);
                         }
@@ -142,7 +158,7 @@ namespace Historical_NS
                 case 3:
                     {
                         var serializer3 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream3 = File.OpenWrite(@"..\..\..\LD3.xml"))
+                        using (var stream3 = File.Create(@"..\..\..\LD3.xml"))
                         {
                             serializer3.Serialize(stream3, LD3);
                         }
@@ -152,7 +168,7 @@ namespace Historical_NS
                 case 4:
                     {
                         var serializer4 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream4 = File.OpenWrite(@"..\..\..\LD4.xml"))
+                        using (var stream4 = File.Create(@"..\..\..\LD4.xml"))
                         {
                             serializer4.Serialize(stream4, LD4);
                         }
@@ -161,45 +177,45 @@ namespace Historical_NS
             }
         }
         
-    /// <summary>
-    /// Funkcija provjerava da li podaci izlaze iz Deadband-a
-    /// </summary>
-    /// <returns></returns>
-    private bool CheckDeadband(ListDescription LD)
-    {
-            //Ukoliko LD struktura ima samo 1 HistoricalDescription, upisi ga, nema provjere Deadband-a
-            if (LD.ListHistoricalDesc.Count == 1)
-            {
-                return true;
-            }
+        /// <summary>
+        /// Funkcija provjerava da li podaci izlaze iz Deadband-a
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckDeadband(ListDescription LD)
+        {
+                //Ukoliko LD struktura ima samo 1 HistoricalDescription, upisi ga, nema provjere Deadband-a
+                if (LD.ListHistoricalDesc.Count == 1)
+                {
+                    return true;
+                }
 
             foreach (HistoricalProperty hp in historicalProperties)
-        {
-            //Za CODE_DIGITAL se ne provjerava Deadbend
-            if (hp.Code == Codes.CODE_DIGITAL)
-                return true;
-
-            //Provjera DeadBend-a
-            foreach (HistoricalDescription hd in LD.ListHistoricalDesc)
             {
-                foreach (HistoricalProperty histProperty in hd.HistoricalProperties)
+                //Za CODE_DIGITAL se ne provjerava Deadbend
+                if (hp.Code == Codes.CODE_DIGITAL)
+                    return true;
+
+                //Provjera DeadBend-a
+                foreach (HistoricalDescription hd in LD.ListHistoricalDesc)
                 {
-                    if (hp.Code == histProperty.Code)
+                    foreach (HistoricalProperty histProperty in hd.HistoricalProperties)
                     {
-                        if (hp.HistoricalValue < (histProperty.HistoricalValue - (histProperty.HistoricalValue/100)*2) ||
-                            hp.HistoricalValue > (histProperty.HistoricalValue + (histProperty.HistoricalValue / 100) * 2))
+                        if (hp.Code == histProperty.Code)
+                        {
+                            if (hp.HistoricalValue < (histProperty.HistoricalValue - (histProperty.HistoricalValue / 100) * 2) ||
+                                hp.HistoricalValue > (histProperty.HistoricalValue + (histProperty.HistoricalValue / 100) * 2))
                             {
-                            //Izlazi iz Deadband-a, upisi u XML
-                            return true;
+                                //Izlazi iz Deadband-a, upisi u XML
+                                return true;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        //ne izlazi iz Deadband-a
-        return false;
-    }
+            //ne izlazi iz Deadband-a
+            return false;
+        }
 
         /// <summary>
         /// Funkcija koja provjerava Dataset na osnovu Code podataka koji su primljeni 
@@ -245,6 +261,8 @@ namespace Historical_NS
         /// <returns></returns>
         public List<HistoricalProperty> GetChangesForInterval(Codes code)
         {
+            LoadLD();       //deserijalizacija
+
             switch(code)
             {
                 case Codes.CODE_ANALOG:
@@ -269,14 +287,14 @@ namespace Historical_NS
             }
         }
 
+        /// <summary>
+        /// Funkcija vraca listu HistoricalProperty-a koji imaju Code jednak prosledjenom parametru.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         private List<HistoricalProperty> GetChangesForCodeAnalogOrDigital(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
-
-            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
-            TextReader reader = new StreamReader(@"..\..\..\LD1.xml");
-            ListDescription LD1  = (ListDescription)deserializer.Deserialize(reader);
-            reader.Close();
 
             foreach(HistoricalDescription hd in LD1.ListHistoricalDesc)
             {
@@ -292,15 +310,15 @@ namespace Historical_NS
             return returnList;
         }
 
+        /// <summary>
+        /// Funkcija vraca listu HistoricalProperty-a koji imaju Code jednak prosledjenom parametru.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         private List<HistoricalProperty> GetChangesForCodeCustomOrLimitset(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
-
-            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
-            TextReader reader = new StreamReader(@"..\..\..\LD2.xml");
-            ListDescription LD2 = (ListDescription)deserializer.Deserialize(reader);
-            reader.Close();
-
+            
             foreach (HistoricalDescription hd in LD2.ListHistoricalDesc)
             {
                 foreach (HistoricalProperty hp in hd.HistoricalProperties)
@@ -315,14 +333,14 @@ namespace Historical_NS
             return returnList;
         }
 
+        /// <summary>
+        /// Funkcija vraca listu HistoricalProperty-a koji imaju Code jednak prosledjenom parametru.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         private List<HistoricalProperty> GetChangesForCodeSinglenodeOrMultiplenode(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
-
-            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
-            TextReader reader = new StreamReader(@"..\..\..\LD3.xml");
-            ListDescription LD3 = (ListDescription)deserializer.Deserialize(reader);
-            reader.Close();
 
             foreach (HistoricalDescription hd in LD3.ListHistoricalDesc)
             {
@@ -338,14 +356,14 @@ namespace Historical_NS
             return returnList;
         }
 
+        /// <summary>
+        /// Funkcija vraca listu HistoricalProperty-a koji imaju Code jednak prosledjenom parametru.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         private List<HistoricalProperty> GetChangesForCodeConsumerOrSource(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
-
-            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
-            TextReader reader = new StreamReader(@"..\..\..\LD4.xml");
-            ListDescription LD4 = (ListDescription)deserializer.Deserialize(reader);
-            reader.Close();
 
             foreach (HistoricalDescription hd in LD4.ListHistoricalDesc)
             {
@@ -359,6 +377,86 @@ namespace Historical_NS
             }
 
             return returnList;
+        }
+
+        /// <summary>
+        /// Rucni upis u History. Writer salje Code i Value unesen rucno, koji se upisuju u LD strukturu.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="value"></param>
+        public void ManualWriteToHistory(Codes code, float value)
+        {
+            LoadLD();       //deserijalizacija LD struktura
+
+            HistoricalDescription hd = new HistoricalDescription();
+            hd.ID = Guid.NewGuid().ToString();
+            CheckDataset(code);
+            hd.Dataset = dataset;
+
+            HistoricalProperty hp = new HistoricalProperty();
+            hp.Code = code;
+            hp.HistoricalValue = value;
+            hp.Time = DateTime.Now;
+
+            hd.HistoricalProperties.Add(hp);
+
+            switch(dataset)
+            {
+                case 1:
+                    LD1.ListHistoricalDesc.Add(hd);
+                    break;
+                case 2:
+                    LD2.ListHistoricalDesc.Add(hd);
+                    break;
+                case 3:
+                    LD3.ListHistoricalDesc.Add(hd);
+                    break;
+                case 4:
+                    LD4.ListHistoricalDesc.Add(hd);
+                    break;
+            }
+
+            SaveToXML();
+        }
+
+        /// <summary>
+        /// Funkcija za deserijalizaciju ListDescription struktura.
+        /// </summary>
+        public void LoadLD()
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(ListDescription));
+
+            try
+            {
+                TextReader reader1 = new StreamReader(@"..\..\..\LD1.xml");
+                LD1 = (ListDescription)deserializer.Deserialize(reader1);
+                reader1.Close();
+            }
+            catch { }
+
+            try
+            {
+                TextReader reader2 = new StreamReader(@"..\..\..\LD2.xml");
+                LD2 = (ListDescription)deserializer.Deserialize(reader2);
+                reader2.Close();
+            }
+            catch { }
+
+            try
+            {
+                TextReader reader3 = new StreamReader(@"..\..\..\LD3.xml");
+                LD3 = (ListDescription)deserializer.Deserialize(reader3);
+                reader3.Close();
+            }
+            catch { }
+
+            try
+            {
+                TextReader reader4 = new StreamReader(@"..\..\..\LD4.xml");
+                LD4 = (ListDescription)deserializer.Deserialize(reader4);
+                reader4.Close();
+            }
+            catch { }
         }
     }
 }
