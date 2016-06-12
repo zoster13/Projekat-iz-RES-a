@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CommonLibrary;
+using Historical_NS;
+using MyGlobals.HistoricalProperties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +11,8 @@ namespace RES
 {
     public  class Reader
     {
+        private Historical historical = Historical.Instance();      //Singleton pattern
+
         private Codes code;
 
         public Codes Code
@@ -45,11 +50,24 @@ namespace RES
                 return false;
             }
             Console.WriteLine("Poslato : {0}", Code);
-            //SendHistory(code);
+            List<HistoricalProperty> properties =  historical.GetChangesForInterval(code);
+
+            ShowAllProperties(properties);
             return true;
             
         }
-        
+
+        private void ShowAllProperties(List<HistoricalProperty> properties)
+        {
+            foreach(HistoricalProperty hp in properties)
+            {
+                Console.WriteLine("Code: {0}", hp.Code);
+                Console.WriteLine("HistoricalValue: {0}", hp.HistoricalValue);
+                Console.WriteLine("Time: {0}", hp.Time);
+                Console.WriteLine("-----------------------------------------------");
+            }
+        }
+
         public int Meni()
         {
             int menuchoice = 0;

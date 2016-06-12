@@ -51,6 +51,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{c8d99fd5-18e4-4218-9650-edd7fb89bdad}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Historical\Historical.csproj">
+      <Project>{40dc5177-6d08-41b2-9a66-6b1995c023b5}</Project>
+      <Name>Historical</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyGlobals\MyGlobals.csproj">
       <Project>{87f358e9-11c7-41c8-bb28-00e62a0697c1}</Project>
       <Name>MyGlobals</Name>

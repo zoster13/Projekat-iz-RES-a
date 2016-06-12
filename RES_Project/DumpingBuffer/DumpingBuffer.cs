@@ -15,7 +15,8 @@ namespace DumpingBuffer_NS
         private DumpingProperty dumpingProperty = new DumpingProperty();
         private int dataset = 0;
         private bool updated = false;
-        private Historical history = new Historical();
+           
+        private Historical historical = Historical.Instance();     //Singleton pattern
 
         public DumpingBuffer()
         {
@@ -141,19 +142,19 @@ namespace DumpingBuffer_NS
             switch (dataset)
             {
                 case 1:
-                    history.WriteToHistory(CD1);
+                    historical.WriteToHistory(CD1);
                     CD1.DumpingPropertyCollection.DumpingCollection.Clear();
                     break;
                 case 2:
-                    history.WriteToHistory(CD2);
+                    historical.WriteToHistory(CD2);
                     CD2.DumpingPropertyCollection.DumpingCollection.Clear();
                     break;
                 case 3:
-                    history.WriteToHistory(CD3);
+                    historical.WriteToHistory(CD3);
                     CD3.DumpingPropertyCollection.DumpingCollection.Clear();
                     break;
                 case 4:
-                    history.WriteToHistory(CD4);
+                    historical.WriteToHistory(CD4);
                     CD4.DumpingPropertyCollection.DumpingCollection.Clear();
                     break;
                 default:
@@ -241,7 +242,7 @@ namespace DumpingBuffer_NS
             {
                 dataset = 2;
             }
-            else if (code == Codes.CODE_SINGLENOE || code == Codes.CODE_MULTIPLENODE)
+            else if (code == Codes.CODE_SINGLENODE || code == Codes.CODE_MULTIPLENODE)
             {
                 dataset = 3;
             }

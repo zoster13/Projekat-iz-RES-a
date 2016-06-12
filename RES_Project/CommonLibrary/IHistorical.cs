@@ -1,4 +1,6 @@
 ﻿using MyGlobals;
+using MyGlobals.HistoricalProperties;
+using System.Collections.Generic;
 
 namespace CommonLibrary
 {
@@ -6,11 +8,6 @@ namespace CommonLibrary
     {
         void WriteToHistory(CollectionDescription CD);
 
-
-        //dodao sam komentar
-
-        //drugi komentar
-
-        //treci :D
+        List<HistoricalProperty> GetChangesForInterval(Codes code);
     }
 }

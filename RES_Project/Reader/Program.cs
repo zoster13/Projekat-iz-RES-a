@@ -13,8 +13,9 @@ namespace RES
         {
             Reader r = new Reader();
             bool cont = true;
-            while(cont)
-            cont = r.SendToHistorical();
+
+            while (cont)
+                cont = r.SendToHistorical();
             
         }        
     }

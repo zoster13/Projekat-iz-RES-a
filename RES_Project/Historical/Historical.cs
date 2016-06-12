@@ -4,6 +4,7 @@ using MyGlobals.HistoricalProperties;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -12,6 +13,8 @@ namespace Historical_NS
 {
     public class Historical : IHistorical
     {
+        private static Historical instance;
+
         private HistoricalProperty tempProperty;
         private List<HistoricalProperty> historicalProperties;
         private HistoricalDescription historicalDesc;
@@ -25,6 +28,18 @@ namespace Historical_NS
 
         private bool valid = false;
         private bool write = false;
+
+        /// <summary>
+        /// Singleton pattern
+        /// </summary>
+        /// <returns></returns>
+        public static Historical Instance()
+        {
+            if (instance == null)
+                instance = new Historical();
+
+            return instance;
+        }
 
         public void WriteToHistory(CollectionDescription CD)
         {
@@ -102,7 +117,6 @@ namespace Historical_NS
 
         private void SaveToXML()
         {
-
             switch (historicalDesc.Dataset)
             {
                 case 1:
@@ -210,7 +224,7 @@ namespace Historical_NS
                 dataset = 2;
                 return true;
             }
-            else if (code == Codes.CODE_SINGLENOE || code == Codes.CODE_MULTIPLENODE)
+            else if (code == Codes.CODE_SINGLENODE || code == Codes.CODE_MULTIPLENODE)
             {
                 dataset = 3;
                 return true;
@@ -222,6 +236,110 @@ namespace Historical_NS
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Funkcija vraca listu HistoricalProperty sa prosledjenim kodom, u hronoloskom redosledu
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public List<HistoricalProperty> GetChangesForInterval(Codes code)
+        {
+            switch(code)
+            {
+                case Codes.CODE_ANALOG:
+                case Codes.CODE_DIGITAL:
+                    return GetChangesForCodeAnalogOrDigital(code);
+
+                case Codes.CODE_CUSTOM:
+                case Codes.CODE_LIMITSET:
+                    return GetChangesForCodeConsumerOrLimitset(code);
+
+                case Codes.CODE_SINGLENODE:
+                case Codes.CODE_MULTIPLENODE:
+                    return GetChangesForCodeSinglenodeOrMultiplenode(code);
+
+
+                case Codes.CODE_CONSUMER:
+                case Codes.CODE_SOURCE:
+                    return GetChangesForCodeConsumerOrSource(code);
+
+                default:
+                    return null;
+            }
+        }
+
+
+        private List<HistoricalProperty> GetChangesForCodeAnalogOrDigital(Codes code)
+        {
+            List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            foreach (HistoricalDescription hd in LD1.ListHistoricalDesc)
+            {
+                foreach (HistoricalProperty hp in hd.HistoricalProperties)
+                {
+                    if (hp.Code == code)
+                    {
+                        returnList.Add(hp);
+                    }
+                }
+            }
+
+            return returnList;
+        }
+
+        private List<HistoricalProperty> GetChangesForCodeConsumerOrLimitset(Codes code)
+        {
+            List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            foreach (HistoricalDescription hd in LD2.ListHistoricalDesc)
+            {
+                foreach (HistoricalProperty hp in hd.HistoricalProperties)
+                {
+                    if (hp.Code == code)
+                    {
+                        returnList.Add(hp);
+                    }
+                }
+            }
+
+            return returnList;
+        }
+
+        private List<HistoricalProperty> GetChangesForCodeSinglenodeOrMultiplenode(Codes code)
+        {
+            List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            foreach (HistoricalDescription hd in LD3.ListHistoricalDesc)
+            {
+                foreach (HistoricalProperty hp in hd.HistoricalProperties)
+                {
+                    if (hp.Code == code)
+                    {
+                        returnList.Add(hp);
+                    }
+                }
+            }
+
+            return returnList;
+        }
+
+        private List<HistoricalProperty> GetChangesForCodeConsumerOrSource(Codes code)
+        {
+            List<HistoricalProperty> returnList = new List<HistoricalProperty>();
+
+            foreach (HistoricalDescription hd in LD4.ListHistoricalDesc)
+            {
+                foreach (HistoricalProperty hp in hd.HistoricalProperties)
+                {
+                    if (hp.Code == code)
+                    {
+                        returnList.Add(hp);
+                    }
+                }
+            }
+
+            return returnList;
         }
     }
 }
