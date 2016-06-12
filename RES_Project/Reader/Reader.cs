@@ -59,14 +59,55 @@ namespace RES
 
         private void ShowAllProperties(List<HistoricalProperty> properties)
         {
-            foreach(HistoricalProperty hp in properties)
+            switch(code)
             {
-                Console.WriteLine("\n-----------------------------------------------");
+                case Codes.CODE_ANALOG:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+
+                case Codes.CODE_DIGITAL:
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    break;
+
+                case Codes.CODE_CUSTOM:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+
+                case Codes.CODE_LIMITSET:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+
+                case Codes.CODE_SINGLENODE:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+
+                case Codes.CODE_MULTIPLENODE:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+
+                case Codes.CODE_CONSUMER:
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    break;
+
+                case Codes.CODE_SOURCE:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+            }
+
+            Console.WriteLine("\n-----------------------------------------------");
+            foreach (HistoricalProperty hp in properties)
+            {
                 Console.WriteLine("\tCode: {0}", hp.Code);
                 Console.WriteLine("\tHistoricalValue: {0}", hp.HistoricalValue);
                 Console.WriteLine("\tTime: {0}", hp.Time);
-                Console.WriteLine("-----------------------------------------------\n");
+                Console.WriteLine();
             }
+            Console.WriteLine("-----------------------------------------------\n");
+            Console.ResetColor();
         }
 
         public int Meni()
@@ -75,15 +116,25 @@ namespace RES
             while (menuchoice != 8)
             {
                 Console.WriteLine("Unesite opciju za zeljeni kod: \n");
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("1. CODE_ANALOG");
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("2. CODE_DIGITAL");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("3. CODE_CUSTOM");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("4. CODE_LIMITSET");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("5. CODE_SINGLENODE");
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("6. CODE_MULTIPLENODE");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine("7. CODE_CONSUMER");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("8. CODE_SOURCE\n");
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("9. EXIT\n");
+                Console.ResetColor();
                 try
                 {
                     menuchoice = int.Parse(Console.ReadLine());

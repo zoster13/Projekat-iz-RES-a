@@ -269,7 +269,6 @@ namespace Historical_NS
             }
         }
 
-
         private List<HistoricalProperty> GetChangesForCodeAnalogOrDigital(Codes code)
         {
             List<HistoricalProperty> returnList = new List<HistoricalProperty>();
