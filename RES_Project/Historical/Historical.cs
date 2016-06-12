@@ -13,8 +13,8 @@ namespace Historical_NS
     public class Historical : IHistorical
     {
         private HistoricalProperty tempProperty;
-        private List<HistoricalProperty> historicalProperties = new List<HistoricalProperty>();
-        private HistoricalDescription historicalDesc = new HistoricalDescription();
+        private List<HistoricalProperty> historicalProperties;
+        private HistoricalDescription historicalDesc;
 
         private ListDescription LD1 = new ListDescription();
         private ListDescription LD2 = new ListDescription();
@@ -28,6 +28,11 @@ namespace Historical_NS
 
         public void WriteToHistory(CollectionDescription CD)
         {
+            historicalDesc = new HistoricalDescription();
+            historicalProperties = new List<HistoricalProperty>();
+            ///historicalDesc.HistoricalProperties.Clear();        //resetuj pomocnu lokalnu prom
+            //historicalProperties.Clear();   //reset
+
             //Prepakivanje u LD strukturu
             historicalDesc.ID = CD.ID;
             historicalDesc.Dataset = CD.Dataset;
@@ -50,7 +55,6 @@ namespace Historical_NS
             historicalDesc.HistoricalProperties = historicalProperties;
 
             
-
             //Dodaj u LD strukturu.
             if (historicalDesc.HistoricalProperties.Count == 2)     //bice 2 samo ako su oba prosla CheckDataset().
             {
@@ -88,7 +92,7 @@ namespace Historical_NS
 
             }
 
-            //if (write)
+            if (write)
             {
                 //Izlazi iz Deadband-a, snimi u XML.
                 SaveToXML();
@@ -104,7 +108,7 @@ namespace Historical_NS
                 case 1:
                     {
                         var serializer1 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream1 = File.OpenWrite(@"C:\Users\Rade\Documents\GitHub\ProjekatRES\ProjekatRES-master\RES_Project\LD1.xml"))
+                        using (var stream1 = File.OpenWrite(@"..\..\..\LD1.xml"))
                         {
                             serializer1.Serialize(stream1, LD1);
                         }
@@ -114,7 +118,7 @@ namespace Historical_NS
                 case 2:
                     {
                         var serializer2 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream2 = File.OpenWrite(@"C:\Users\Rade\Documents\GitHub\ProjekatRES\ProjekatRES-master\RES_Project\LD2.xml"))
+                        using (var stream2 = File.OpenWrite(@"..\..\..\LD2.xml"))
                         {
                             serializer2.Serialize(stream2, LD2);
                         }
@@ -124,7 +128,7 @@ namespace Historical_NS
                 case 3:
                     {
                         var serializer3 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream3 = File.OpenWrite(@"C:\Users\Rade\Documents\GitHub\ProjekatRES\ProjekatRES-master\RES_Project\LD3.xml"))
+                        using (var stream3 = File.OpenWrite(@"..\..\..\LD3.xml"))
                         {
                             serializer3.Serialize(stream3, LD3);
                         }
@@ -134,7 +138,7 @@ namespace Historical_NS
                 case 4:
                     {
                         var serializer4 = new XmlSerializer(typeof(ListDescription));
-                        using (var stream4 = File.OpenWrite(@"C:\Users\Rade\Documents\GitHub\ProjekatRES\ProjekatRES-master\RES_Project\LD4.xml"))
+                        using (var stream4 = File.OpenWrite(@"..\..\..\LD4.xml"))
                         {
                             serializer4.Serialize(stream4, LD4);
                         }
@@ -149,7 +153,13 @@ namespace Historical_NS
     /// <returns></returns>
     private bool CheckDeadband(ListDescription LD)
     {
-        foreach (HistoricalProperty hp in historicalProperties)
+            //Ukoliko LD struktura ima samo 1 HistoricalDescription, upisi ga, nema provjere Deadband-a
+            if (LD.ListHistoricalDesc.Count == 1)
+            {
+                return true;
+            }
+
+            foreach (HistoricalProperty hp in historicalProperties)
         {
             //Za CODE_DIGITAL se ne provjerava Deadbend
             if (hp.Code == Codes.CODE_DIGITAL)
@@ -162,13 +172,10 @@ namespace Historical_NS
                 {
                     if (hp.Code == histProperty.Code)
                     {
-                        if (hp.HistoricalValue < (histProperty.HistoricalValue - histProperty.HistoricalValue * 1.02) ||
-                            hp.HistoricalValue > (histProperty.HistoricalValue + histProperty.HistoricalValue * 1.02))
-                        {
+                        if (hp.HistoricalValue < (histProperty.HistoricalValue - (histProperty.HistoricalValue/100)*2) ||
+                            hp.HistoricalValue > (histProperty.HistoricalValue + (histProperty.HistoricalValue / 100) * 2))
+                            {
                             //Izlazi iz Deadband-a, upisi u XML
-                            LD.ListHistoricalDesc.Remove(hd);                 //obrisi stari
-                            LD.ListHistoricalDesc.Add(historicalDesc);        //dodaj novi
-
                             return true;
                         }
                     }
