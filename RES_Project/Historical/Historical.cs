@@ -91,41 +91,69 @@ namespace Historical_NS
                 {
                     case 1:
                         LD1.ListHistoricalDesc.Add(historicalDesc);
+                        write = CheckDeadband(LD1, false);
+
+                        if (write)
+                        {
+                            //Ako izlazi iz Deadband-a, onda upisi
+                            SaveToXML();
+                        }
+                        else
+                        {
+                            //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                            LD1.ListHistoricalDesc.Remove(historicalDesc);
+                        }
                         break;
+
                     case 2:
                         LD2.ListHistoricalDesc.Add(historicalDesc);
+                        write = CheckDeadband(LD1, false);
+
+                        if (write)
+                        {
+                            //Ako izlazi iz Deadband-a, onda upisi
+                            SaveToXML();
+                        }
+                        else
+                        {
+                            //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                            LD2.ListHistoricalDesc.Remove(historicalDesc);
+                        }
                         break;
+
                     case 3:
                         LD3.ListHistoricalDesc.Add(historicalDesc);
+                        write = CheckDeadband(LD1, false);
+
+                        if (write)
+                        {
+                            //Ako izlazi iz Deadband-a, onda upisi
+                            SaveToXML();
+                        }
+                        else
+                        {
+                            //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                            LD3.ListHistoricalDesc.Remove(historicalDesc);
+                        }
                         break;
+
                     case 4:
                         LD4.ListHistoricalDesc.Add(historicalDesc);
+                        write = CheckDeadband(LD1, false);
+
+                        if (write)
+                        {
+                            //Ako izlazi iz Deadband-a, onda upisi
+                            SaveToXML();
+                        }
+                        else
+                        {
+                            //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                            LD4.ListHistoricalDesc.Remove(historicalDesc);
+                        }
                         break;
                 }
-            }
-            
-            switch(dataset)
-            {
-                case 1:
-                    write = CheckDeadband(LD1);
-                    break;
-                case 2:
-                    write = CheckDeadband(LD2);
-                    break;
-                case 3:
-                    write = CheckDeadband(LD3);
-                    break;
-                case 4:
-                    write = CheckDeadband(LD4);
-                    break;
-
-            }
-
-            if (write)
-            {
-                //Izlazi iz Deadband-a, snimi u XML.
-                SaveToXML();
-            }
+            }            
         }
 
         /// <summary>
@@ -176,18 +204,23 @@ namespace Historical_NS
                     break;
             }
         }
-        
+
         /// <summary>
         /// Funkcija provjerava da li podaci izlaze iz Deadband-a
         /// </summary>
-        /// <returns></returns>
-        private bool CheckDeadband(ListDescription LD)
+        /// <param name="LD"> LD koji se provjerava </param>
+        /// <param name="manual"> parametar govori da li se radi o rucnom upisu </param>
+        /// <returns></returns> 
+        private bool CheckDeadband(ListDescription LD, bool manual)
         {
+            if (!manual)
+            {
                 //Ukoliko LD struktura ima samo 1 HistoricalDescription, upisi ga, nema provjere Deadband-a
                 if (LD.ListHistoricalDesc.Count == 1)
                 {
                     return true;
                 }
+            }
 
             foreach (HistoricalProperty hp in historicalProperties)
             {
@@ -202,19 +235,29 @@ namespace Historical_NS
                     {
                         if (hp.Code == histProperty.Code)
                         {
+                            //izlazi id deadband-a
                             if (hp.HistoricalValue < (histProperty.HistoricalValue - (histProperty.HistoricalValue / 100) * 2) ||
                                 hp.HistoricalValue > (histProperty.HistoricalValue + (histProperty.HistoricalValue / 100) * 2))
                             {
-                                //Izlazi iz Deadband-a, upisi u XML
-                                return true;
+                                //Izlazi iz Deadband-a
+                            }
+                            else
+                            {
+                                if (hp.Time == histProperty.Time)
+                                {
+                                    //znaci da se radi o istom HistoricalProperty-u
+                                }
+                                else
+                                {
+                                    return false;
+                                }
                             }
                         }
+                        
                     }
                 }
             }
-
-            //ne izlazi iz Deadband-a
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -388,35 +431,89 @@ namespace Historical_NS
         {
             LoadLD();       //deserijalizacija LD struktura
 
-            HistoricalDescription hd = new HistoricalDescription();
-            hd.ID = Guid.NewGuid().ToString();
+            //Temp
+            tempProperty = new HistoricalProperty();
+            historicalDesc = new HistoricalDescription();
+            historicalProperties = new List<HistoricalProperty>();
+
+            tempProperty.Code = code;
+            tempProperty.HistoricalValue = value;
+            tempProperty.Time = DateTime.Now;
+            historicalProperties.Add(tempProperty);
+
+            historicalDesc.ID = Guid.NewGuid().ToString();
             CheckDataset(code);
-            hd.Dataset = dataset;
+            historicalDesc.Dataset = dataset;
+            historicalDesc.HistoricalProperties = historicalProperties;
 
-            HistoricalProperty hp = new HistoricalProperty();
-            hp.Code = code;
-            hp.HistoricalValue = value;
-            hp.Time = DateTime.Now;
-
-            hd.HistoricalProperties.Add(hp);
-
-            switch(dataset)
+            switch (dataset)
             {
                 case 1:
-                    LD1.ListHistoricalDesc.Add(hd);
+                    LD1.ListHistoricalDesc.Add(historicalDesc);
+                    write = CheckDeadband(LD1, true);
+   
+                    if (write)
+                    {
+                        //Ako izlazi iz Deadband-a, onda upisi
+                        SaveToXML();
+                    }
+                    else
+                    {
+                        //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                        LD1.ListHistoricalDesc.Remove(historicalDesc);
+                    }
                     break;
+
                 case 2:
-                    LD2.ListHistoricalDesc.Add(hd);
+                    LD2.ListHistoricalDesc.Add(historicalDesc);
+                    write = CheckDeadband(LD2, true);
+                    
+                    
+                    if (write)
+                    {
+                        //Ako izlazi iz Deadband-a, onda upisi
+                        SaveToXML();
+                    }
+                    else
+                    {
+                        //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                        LD2.ListHistoricalDesc.Remove(historicalDesc);
+                    }
                     break;
+
                 case 3:
-                    LD3.ListHistoricalDesc.Add(hd);
+                    LD3.ListHistoricalDesc.Add(historicalDesc);
+                    write = CheckDeadband(LD3, true);
+
+                    
+                    if (write)
+                    {
+                        //Ako izlazi iz Deadband-a, onda upisi
+                        SaveToXML();
+                    }
+                    else
+                    {
+                        //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                        LD3.ListHistoricalDesc.Remove(historicalDesc);
+                    }
                     break;
+
                 case 4:
-                    LD4.ListHistoricalDesc.Add(hd);
+                    LD4.ListHistoricalDesc.Add(historicalDesc);
+                    write = CheckDeadband(LD4, true);
+
+                    if (write)
+                    {
+                        //Ako izlazi iz Deadband-a, onda upisi
+                        SaveToXML();
+                    }
+                    else
+                    {
+                        //Ako nije prosao Deadband, obrisi ga iz LD strukture.
+                        LD4.ListHistoricalDesc.Remove(historicalDesc);
+                    }
                     break;
             }
-
-            SaveToXML();
         }
 
         /// <summary>
