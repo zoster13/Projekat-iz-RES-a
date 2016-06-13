@@ -1,8 +1,14 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ListDescription.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace MyGlobals.HistoricalProperties

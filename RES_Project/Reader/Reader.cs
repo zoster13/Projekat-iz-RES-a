@@ -1,11 +1,16 @@
-﻿using CommonLibrary;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Reader.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
 using Historical_NS;
 using MyGlobals.HistoricalProperties;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RES
 {
@@ -152,7 +157,7 @@ namespace RES
                 {
                     menuchoice = int.Parse(Console.ReadLine());
                 }
-                catch (Exception e)
+                catch
                 {
                     Console.WriteLine("\nUnesite broj\n");                    
                 }

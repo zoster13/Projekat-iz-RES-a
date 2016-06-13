@@ -1,4 +1,13 @@
-﻿using CommonLibrary;
+﻿//-----------------------------------------------------------------------
+// <copyright file="DumpingBuffer.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using CommonLibrary;
 using Historical_NS;
 using MyGlobals;
 using System;
@@ -87,23 +96,23 @@ namespace DumpingBuffer_NS
                     case 1:
                         CD1.ID = Guid.NewGuid().ToString();
                         CD1.Dataset = dataset;
-                        CD1.dumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
+                        CD1.DumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
                         break;
                     case 2:
                         CD2.ID = Guid.NewGuid().ToString();
                         CD2.Dataset = dataset;
-                        CD2.dumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
+                        CD2.DumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
                         break;
                     case 3:
                         CD3.ID = Guid.NewGuid().ToString();
                         CD3.Dataset = dataset;
-                        CD3.dumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
+                        CD3.DumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
                         break;
 
                     case 4:
                         CD4.ID = Guid.NewGuid().ToString();
                         CD4.Dataset = dataset;
-                        CD4.dumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
+                        CD4.DumpingPropertyCollection.DumpingCollection.Add(dumpingProperty);
                         break;
                 }
             }

@@ -1,7 +1,10 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Enums.cs" company="CompanyName">
-//     Company copyright tag.
+// <copyright file="Enums.cs" company="company">
+//      Copyright (c) company. All rights reserved.
 // </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
 //-----------------------------------------------------------------------
 
 /// <summary>

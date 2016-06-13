@@ -1,8 +1,14 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="HistoricalDescription.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGlobals.HistoricalProperties
 {
@@ -37,6 +43,7 @@ namespace MyGlobals.HistoricalProperties
             {
                 return this.dataset;
             }
+
             set
             {
                 this.dataset = value;
@@ -49,6 +56,7 @@ namespace MyGlobals.HistoricalProperties
             {
                 return historicalProperties;
             }
+
             set
             {
                 this.historicalProperties = value;

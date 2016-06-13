@@ -1,12 +1,15 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="WritterTest.cs" company="CompanyName">
-//     Company copyright tag.
+// <copyright file="WritterTest.cs" company="company">
+//      Copyright (c) company. All rights reserved.
 // </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
 //-----------------------------------------------------------------------
 
+using System;
 using NUnit.Framework;
 using RES;
-using System;
 
 namespace WritterTest
 {
@@ -26,7 +29,7 @@ namespace WritterTest
         [TestCase((float)9.3, 7)]
         [TestCase((float)0.3, 4)]
         [TestCase((float)9.9, 2)]
-        public void WritterKonstruktorDobar(float value,int code)
+        public void WritterKonstruktorDobar(float value, int code)
         {                       
             Writter w = new Writter((Codes)code, value);
             Assert.AreEqual(w.Value, value);

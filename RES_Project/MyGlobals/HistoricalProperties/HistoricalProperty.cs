@@ -1,8 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="HistoricalProperty.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using System;
 
 namespace MyGlobals.HistoricalProperties
 {
@@ -45,6 +50,7 @@ namespace MyGlobals.HistoricalProperties
             {
                 return time;
             }
+
             set
             {
                 this.time = value;

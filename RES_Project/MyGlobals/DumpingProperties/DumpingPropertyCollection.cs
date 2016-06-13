@@ -1,8 +1,13 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="DumpingPropertyCollection.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGlobals
 {

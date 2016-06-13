@@ -1,7 +1,10 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Writter.cs" company="CompanyName">
-//     Company copyright tag.
+// <copyright file="Writter.cs" company="company">
+//      Copyright (c) company. All rights reserved.
 // </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
 //-----------------------------------------------------------------------
 
 using System;
@@ -14,7 +17,7 @@ namespace RES
 {
     public class Writter
     {
-        //Singleton pattern, postoji samo po 1 instanca DumpingBuffer i Historical-a
+        // Singleton pattern, postoji samo po 1 instanca DumpingBuffer i Historical-a
         private DumpingBuffer db = DumpingBuffer.Instance();
         private Historical historical = Historical.Instance();
 
@@ -62,7 +65,7 @@ namespace RES
         }
 
         /// <summary>
-        /// Konstruktor bez parametara
+        /// Initializes a new instance of the <see cref="Writter"/> class.
         /// </summary>
         public Writter()
         {
@@ -71,10 +74,10 @@ namespace RES
         }
 
         /// <summary>
-        /// Konstruktor sa parametrima
+        /// Initializes a new instance of the <see cref="Writter"/> class.
         /// </summary>
-        /// <param name="code"></param>
-        /// <param name="val"></param>
+        /// <param name="code">Code</param>
+        /// <param name="val">Value</param>
         public Writter(Codes code, float val)
         {
             int tempCode = (int)code;
@@ -108,9 +111,9 @@ namespace RES
         }
 
         /// <summary>
-        /// Funkcija koja automatski salje Code i Value DumpingBuffer komponenti.
+        /// Function automatically sending Code and Value to DumpingBuffer
         /// </summary>
-        private void SendToDumpingBuffer()
+        public void SendToDumpingBuffer()
         {
             string className = MethodBase.GetCurrentMethod().DeclaringType.Name;
             string functionName = MethodBase.GetCurrentMethod().Name;
@@ -121,16 +124,16 @@ namespace RES
                 Logger.Log(className, functionName, "Sending to Dumping Buffer");                
             }
 
-            //TO DO: make a call to Dumping Buffer 
+            // TO DO: make a call to Dumping Buffer 
             db.WriteToDumpingBuffer(Code, Value);
                   
             Thread.Sleep(2000);
         }
 
         /// <summary>
-        /// Funkcija preko koje se rucno unosi Code i Value, koji se direktno salju Historical komponenti.
+        /// Function sending Code and Value to DumpingBuffer which are manual entered
         /// </summary>
-        private void SendToHistoricalManual()
+        public void SendToHistoricalManual()
         {
             string className = MethodBase.GetCurrentMethod().DeclaringType.Name;
             string functionName = MethodBase.GetCurrentMethod().Name;
@@ -143,7 +146,7 @@ namespace RES
             bool validanUnos = false;
             Code = (Codes)Meni();
             
-            if((int)Code == 8)
+            if ((int)Code == 8)
             {
                 StartWritting();
             }
@@ -156,13 +159,14 @@ namespace RES
                     Value = float.Parse(Console.ReadLine());
                     validanUnos = true;
                 }
-                catch (Exception ex)
+                catch
                 {
                     Console.WriteLine("Pogresan unos!");
                     validanUnos = false;
                 }
             }
-            //Call Historical
+
+            // Call Historical
             Console.WriteLine("Code: {0}", Code);
             Console.WriteLine("Value: {0}", Value);
             Console.WriteLine("Sending to Historical...");
@@ -172,20 +176,20 @@ namespace RES
         /// <summary>
         /// Generating random Codes and Values from 0 to 10
         /// </summary>
-        private void Generate()
+        public void Generate()
         {
             Random rnd = new Random();
             Code = (Codes)rnd.Next(0, 8);
             Value = (float)rnd.NextDouble() * 10;
-            Value = (float)((int)(Value * 100 + 0.5) / 100.0);
+            Value = (float)((int)((Value * 100) + 0.5) / 100.0);
             Console.WriteLine("Code: {0}", Code);
             Console.WriteLine("Value: {0}", Value);
         }
 
         /// <summary>
-        /// Izbor koda za slanje
+        /// Select code for send
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Menu choice </returns>
         public int Meni()
         {
             int menuchoice = 0;
@@ -215,10 +219,11 @@ namespace RES
                 {
                     menuchoice = int.Parse(Console.ReadLine());
                 }
-                catch (Exception e)
+                catch
                 {
                     Console.WriteLine("\nUnesite broj\n");
                 }
+
                 switch (menuchoice)
                 {
                     case 1:
@@ -244,6 +249,7 @@ namespace RES
                         return -1;
                 }
             }
+
             return -1;
         }
     }

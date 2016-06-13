@@ -1,11 +1,20 @@
-﻿using NUnit.Framework;
-using RES;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ReaderTest.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
 using System;
+using NUnit.Framework;
+using RES;
 
 namespace ReaderTest
 {
     [TestFixture]
-    class ReaderTest
+    public class ReaderTest
     {
         [Test]
         [TestCase(2)]
@@ -33,7 +42,6 @@ namespace ReaderTest
         [Test]
         public void Main_Dobar()
         {
-
         }
     }
 }

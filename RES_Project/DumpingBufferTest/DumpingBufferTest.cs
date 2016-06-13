@@ -1,4 +1,13 @@
-﻿using DumpingBuffer_NS;
+﻿//-----------------------------------------------------------------------
+// <copyright file="DumpingBufferTest.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using DumpingBuffer_NS;
 using NUnit.Framework;
 using System;
 

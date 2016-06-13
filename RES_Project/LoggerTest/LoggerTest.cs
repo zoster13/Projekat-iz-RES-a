@@ -1,13 +1,15 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="LoggerTest.cs" company="CompanyName">
-//     Company copyright tag.
+// <copyright file="LoggerTest.cs" company="company">
+//      Copyright (c) company. All rights reserved.
 // </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
 //-----------------------------------------------------------------------
 
+using System;
 using NUnit.Framework;
 using RES;
-using System;
-using System.IO;
 
 namespace LoggerTest
 {

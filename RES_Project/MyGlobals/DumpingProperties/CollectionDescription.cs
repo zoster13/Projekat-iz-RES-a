@@ -1,10 +1,19 @@
-﻿namespace MyGlobals
+﻿//-----------------------------------------------------------------------
+// <copyright file="CollectionDescription.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+namespace MyGlobals
 {
     public class CollectionDescription
     {
         private string id;
         private int dataset;
-        public DumpingPropertyCollection dumpingPropertyCollection = new DumpingPropertyCollection();
+        private DumpingPropertyCollection dumpingPropertyCollection = new DumpingPropertyCollection();
 
         public CollectionDescription()
         {
@@ -29,6 +38,7 @@
             {
                 return this.dataset;
             }
+
             set
             {
                 this.dataset = value;
@@ -41,6 +51,7 @@
             {
                 return this.dumpingPropertyCollection;
             }
+
             set
             {
                 this.dumpingPropertyCollection = value;

@@ -1,12 +1,18 @@
-﻿using CommonLibrary;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Historical.cs" company="company">
+//      Copyright (c) company. All rights reserved.
+// </copyright>
+// <author>zosterTeam</author>
+// <email> rade.zekanovic@gmail.com </email>
+// <email> lesansa00@gmail.com </email>
+//-----------------------------------------------------------------------
+
+using CommonLibrary;
 using MyGlobals;
 using MyGlobals.HistoricalProperties;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Historical_NS
@@ -30,7 +36,7 @@ namespace Historical_NS
         private bool write = false;
 
         /// <summary>
-        /// Konstruktor bez parametara
+        /// Initializes a new instance of the <see cref="Historical"/> class.
         /// </summary>
         public Historical()
         {
@@ -39,7 +45,7 @@ namespace Historical_NS
         /// <summary>
         /// Singleton pattern, omogucuje da uvijek imamo samo jednu instancu Historical-a
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Return instance of class </returns>
         public static Historical Instance()
         {
             if (instance == null)
@@ -210,7 +216,7 @@ namespace Historical_NS
         /// </summary>
         /// <param name="LD"> LD koji se provjerava </param>
         /// <param name="manual"> parametar govori da li se radi o rucnom upisu </param>
-        /// <returns></returns> 
+        /// <returns>  </returns> 
         private bool CheckDeadband(ListDescription LD, bool manual)
         {
             if (!manual)
@@ -264,7 +270,7 @@ namespace Historical_NS
         /// Funkcija koja provjerava Dataset na osnovu Code podataka koji su primljeni 
         /// </summary>
         /// <param name="code"></param>
-        /// <returns></returns>
+        /// <returns> </returns>
         public bool CheckDataset(Codes code)
         {
             int tempCode = (int)code;
